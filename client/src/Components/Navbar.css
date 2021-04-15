@@ -1,0 +1,10 @@
+.navbar{
+    background-color: black;
+}
+.navbar img{
+    outline: none;
+}
+.nav-item{
+    cursor: pointer;
+    text-decoration: none;
+}

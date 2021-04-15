@@ -1,0 +1,13 @@
+.form Button{
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-right: 15px;
+  outline: none;
+}
+.form .btn{
+  margin-top: 20px;
+}
+
+.form Button:hover{
+  background-color: rgb(73, 170, 73);
+}
