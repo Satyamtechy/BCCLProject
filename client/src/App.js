@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext,useReducer } from 'react'
 import Headquater from './Components/HeadQuater'
 import Home from './Components/Home'
 import { Route,Switch } from 'react-router-dom'
@@ -9,11 +9,13 @@ import Login from './Components/Login.js'
 import SystemStore from './Components/SystemStore'
 import MaterialMaster from './Components/MaterialMaster'
 import Logout from './Components/Logout'
-const App = () => {
-  return (
-    <>
-    
-        <Switch>
+import {initialState,reducer} from '../src/Reducer/UseReducer'
+
+export const UserContext = createContext();
+
+const Routing=()=>{
+  return(
+    <Switch>
         <Route path="/login" component={Login}>
         </Route>
         <Route path="/headquater" component={Headquater}>
@@ -33,7 +35,19 @@ const App = () => {
         <Route  path="/" component={Home}>
         </Route>
         </Switch>
+  )
+}
 
+
+const App = () => {
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <>
+        <UserContext.Provider value={{state,dispatch}}>
+          <Routing />
+        </UserContext.Provider>
     </>
   )
 }
